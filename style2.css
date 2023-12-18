@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+    font-family:'Times New Roman', Times, serif
+}
+body{
+    height: 100vh;
+    background: linear-gradient(to right, #4adf54, #3d8888);
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.header::before{
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.1 );
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}
+.header::after{
+    content: '';
+    position:absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255, .4),transparent);
+    transition: .5s;
+}
+.header:hover:after{
+    left: 100%;
+}
+.logo{
+    font-size: 1.75rem;
+    color:#fff; 
+    text-decoration: none;
+    font-weight: 700;
+}
+.logo .anh{
+    margin-right: auto; 
+    height: 24px;
+    width: 24px;
+    color: antiquewhite;
+}
+.logo img{
+    width: 70%;
+}
+.navabar a{
+    font-size: 1.5rem;
+    color:#fff;
+    transform: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+}
+#check {
+    display: none;
+}
+.icons{
+    position: absolute;
+    right: 5%;
+    font-size:2.8rem ;
+    color: #fff;
+    cursor: none;
+    display: none;
+}
+.sanpham{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    margin: 120px 20px;
+    width: 375px;
+    height: 400px;
+    background: #272d48;
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    position: relative;
+}
+.card-heart{
+    font-size: 25px;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+.card-img{
+    width: 90%;
+    transition: 0.5s;
+}
+.card-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.car-title {
+    font-size: 25px;
+    font:"poppins";
+    font-weight: bold;
+    text-align: center;
+    color:tomato;
+    transform: 0.5s;
+    transition-delay:0.2s ;
+}
+.card-price{
+    transition: 0.5s;
+}
+.cards- button{
+    font-size: 20px;
+    background: #4adf54;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px 21px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+.cards- button:hover{
+    transform: scale(0.9);
+}
+.card:hover .card-img{
+    transform: translateY(-90px) rotate(-20deg);
+}
+.card:hover .car-title {
+    transform: translate(-38px,-72px);
+}
+.card-price{
+    margin-top: 150px;
+}
+.card-price, .cards-{
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay:0.4s ;
+}
+.card:hover .card-price,
+.card:hover .cards-{
+    visibility: visible;
+    opacity: 100;
+}
+.card:hover .card-price{
+    margin-top: -30px;
+}
+
+
+@media (max-width:992px){
+    .header{
+        padding: 1.3rem 5%;
+    }
+}
+@media (max-width: 768px){
+    .icons{
+        display: inline-flex;
+    }
+    #check:checked~.icons #menu-icon{
+        display: none;
+    }
+    .icons #close-icon {
+        display: none;
+    }
+    #check:checked~.icons #close-icon{
+        display: block;
+    }
+    .navabar{
+        position: absolute;
+        top:100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(0,0,0,.1 );
+        backdrop-filter: blur(50px);
+        box-shadow: 0.5rem 1rem rgba(0,0,0,.1 );
+        overflow: hidden;
+        transition: .3s ease;
+    }
+    #check:checked~.navabar{
+        height: 17.7rem;
+    }
+    .navabar a{
+        display: block;
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: .3s ease;
+    }
+    #check:checked~.navabar a{
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(.15s* var(--i));
+    }
+}
